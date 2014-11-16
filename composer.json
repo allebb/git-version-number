@@ -1,0 +1,22 @@
+{
+    "name": "ballen/git-version-number",
+    "description": "A simple class for utilising your project's Git version information as your application version.",
+    "keywords": ["git version", "app version", "application", "version", "git", "ballen", "bobsta63"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bobby Allen",
+            "email": "ballen@bobbyallen.me"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ballen\\GitVersionNumber\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
