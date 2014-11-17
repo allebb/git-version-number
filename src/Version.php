@@ -93,7 +93,7 @@ class Version
         $version_bits = explode('-', $this->version);
         if (strlen($version_bits[0])) {
             if (isset($version_bits[1])) {
-                $version_bits[0] . '.' . $version_bits[1];
+                $this->version = $version_bits[0] . '.' . $version_bits[1];
             } else {
                 $this->version = $version_bits[0] . '.0';
             }
