@@ -45,6 +45,15 @@ class Version
     }
 
     /**
+     * Returns the version number as a full number (integer) this is the same as the version string but without dots and will drop leading zeros!
+     * @return int
+     */
+    public function getVersionNumber()
+    {
+        return (int) str_replace('.', '', $this->version);
+    }
+
+    /**
      * Returns the version hash (if one is present) (eg. g0106dc9)
      * @return string
      */
@@ -54,12 +63,12 @@ class Version
     }
 
     /**
-     * Returns the version number as a full number (integer) this is the same as the version string but without dots and will drop leading zeros!
-     * @return int
+     * Returns an array containing the version string parts.
+     * @return array
      */
-    public function getVersionNumber()
+    public function getVersionBits()
     {
-        return (int) str_replace('.', '', $this->version);
+        return explode('.', $this->getVersionString());
     }
 
     /**
