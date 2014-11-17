@@ -36,21 +36,31 @@ class Version
     }
 
     /**
-     * Returns the full version number as a string (eg. 1.3.7)
+     * Get the version number as a dot seperated string.
+     * @param int $bits Optional version number bits to return.
      * @return string
      */
-    public function getVersionString()
+    public function getVersionString($bits = null)
     {
-        return $this->version;
+        if (is_null($bits)) {
+            return $this->version;
+        } else {
+            return implode('.', $this->versionFromBits($bits));
+        }
     }
 
     /**
      * Returns the version number as a full number (integer) this is the same as the version string but without dots and will drop leading zeros!
+     * @param int $bits Optional version number bits to return.
      * @return int
      */
-    public function getVersionNumber()
+    public function getVersionNumber($bits = null)
     {
-        return (int) str_replace('.', '', $this->version);
+        if (is_null($bits)) {
+            return (int) str_replace('.', '', $this->version);
+        } else {
+            return implode('.', $this->versionFromBits($bits));
+        }
     }
 
     /**
@@ -94,7 +104,7 @@ class Version
     }
 
     /**
-     * Computes and sets the version number and hash properties.
+     * Computes and sets the version number and hash object properties.
      * @return voids
      */
     private function versionBits()
@@ -110,6 +120,20 @@ class Version
                 $this->hash = $version_bits[2];
             }
         }
+    }
+
+    /**
+     * Returns an customised array of the total number of version bits. 
+     * @param int $bits The total number of bits (segments) to return.
+     * @return array
+     */
+    private function versionFromBits($bits)
+    {
+        $version = [];
+        foreach (range(0, ($bits - 1)) as $bit) {
+            $version[$bit] = $this->getVersionBits()[$bit];
+        }
+        return $version;
     }
 
 }
