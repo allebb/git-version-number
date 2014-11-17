@@ -23,3 +23,6 @@ echo (new Version('/home/vagrant/Code/bindhub'))->getVersionNumber(1) . PHP_EOL;
 
 // Var dump out the version parts.
 echo var_dump(VersionFactory::create('/home/vagrant/Code/bindhub')->getVersionBits()) . PHP_EOL;
+
+// Alternatively just use the __toString() method to output the standard version infomation as a string:
+echo (VersionFactory::create('/home/vagrant/Code/bindhub')). PHP_EOL;

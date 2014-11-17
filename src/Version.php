@@ -82,6 +82,15 @@ class Version
     }
 
     /**
+     * Method overload, outputs the full text version number as outputted by the 'git describe --tags' command.
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->version;
+    }
+
+    /**
      * Extracts the version from the Git repository.
      * @return void
      */
