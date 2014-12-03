@@ -109,7 +109,7 @@ class Version
         if (is_null($this->git_path)) {
             return 'git describe --tags';
         }
-        return 'git -C ' . $this->git_path . ' describe --tags';
+        return 'git --git-dir=' . $this->git_path . ' describe --tags';
     }
 
     /**
