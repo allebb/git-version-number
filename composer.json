@@ -6,7 +6,9 @@
     "authors": [
         {
             "name": "Bobby Allen",
-            "email": "ballen@bobbyallen.me"
+            "email": "ballen@bobbyallen.me",
+            "homepage": "http://bobbyallen.me",
+            "role": "Developer"
         }
     ],
     "require": {
