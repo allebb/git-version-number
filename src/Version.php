@@ -27,11 +27,9 @@ class Version
      * Class constructor
      * @param string $git_path Optional Git Path to be set when the .git directory is not in the same directory as the PHP script.
      */
-    public function __construct($git_path = null)
+    public function __construct($git_path = '.')
     {
-        if (!is_null($git_path)) {
-            $this->git_path = $git_path;
-        }
+        $this->setRepositoryPath($git_path);
         $this->extractVersion();
     }
 
@@ -91,6 +89,15 @@ class Version
     }
 
     /**
+     * Sets the Git repository path ensuring the /.git is appended to the end of the path.
+     * @return void
+     */
+    private function setRepositoryPath($path)
+    {
+        $this->git_path = rtrim($path, '/') . '/.git';
+    }
+
+    /**
      * Extracts the version from the Git repository.
      * @return void
      */
@@ -144,5 +151,4 @@ class Version
         }
         return $version;
     }
-
-}
+}Ï
