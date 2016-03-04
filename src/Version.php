@@ -127,7 +127,7 @@ class Version
         if (is_null($this->git_path)) {
             return 'git describe --tags';
         }
-        return 'git --git-dir=' . $this->git_path . ' describe --tags';
+        return sprintf('git --git-dir=%s describe --tags', $this->git_path);
     }
 
     /**
@@ -141,12 +141,13 @@ class Version
             if (isset($version_bits[1])) {
                 $this->version = $version_bits[0] . '.' . $version_bits[1];
             } else {
-                $this->version = $version_bits[0] . '.0';
+                $this->version = $version_bits[0];
             }
             if (isset($version_bits[2])) {
                 $this->hash = $version_bits[2];
             }
         }
+        return $version_bits;
     }
 
     /**
