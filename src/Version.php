@@ -105,7 +105,7 @@ class Version
      */
     private function setRepositoryPath($path)
     {
-        $this->git_path = rtrim($path, '/') . '/.git';
+        $this->git_path = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . '.git';
     }
 
     /**
