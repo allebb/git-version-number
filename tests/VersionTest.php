@@ -1,5 +1,4 @@
 <?php
-use PHPUnit_Framework_TestCase;
 use Ballen\GitVersionNumber\Version;
 use Ballen\GitVersionNumber\VersionFactory;
 
