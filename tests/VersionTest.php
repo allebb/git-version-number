@@ -17,7 +17,7 @@ class VersionTest extends PHPUnit_Framework_TestCase
     {
         $stub_archive = new ZipArchive();
         if ($stub_archive->open(self::STUB_DIR . DIRECTORY_SEPARATOR . self::STUB_ARCHIVE)) {
-            $stub_archive->extractTo(sef::STUB_DIR);
+            $stub_archive->extractTo(self::STUB_DIR);
             $stub_archive->close();
         } else {
             die('Unable to extract stub project.');
