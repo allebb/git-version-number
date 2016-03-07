@@ -6,8 +6,8 @@ use Ballen\GitVersionNumber\VersionFactory;
 class VersionTest extends PHPUnit_Framework_TestCase
 {
 
-    const STUB_DIR = __DIR__ . DIRECTORY_SEPARATOR . 'ProjectStub';
-    const STUB_ARCHIVE = 'archive.zip';
+    const STUB_DIR = __DIR__ . DIRECTORY_SEPARATOR . 'Stub';
+    const STUB_ARCHIVE = 'example_project.zip';
 
     /**
      * Sets' up the test, we'll extract our stub Git project given that GitSCM is not capable of versioning a .git directory.
