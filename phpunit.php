@@ -4,3 +4,4 @@
  * UTILISE THE PACKAGE CLASSES IN THE TEST CLASSES.
  */
 require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/tests/GitVersionTestSuite.php';
