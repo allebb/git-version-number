@@ -1,6 +1,5 @@
 <?php
 use Ballen\GitVersionNumber\Version;
-use Ballen\GitVersionNumber\VersionFactory;
 
 class VersionTest extends GitVersionTestSuite
 {
@@ -50,6 +49,29 @@ class VersionTest extends GitVersionTestSuite
 
     public function testToStringMethod()
     {
-        $this->assertEquals('1.0.3', (string) $this->instance);
+        $this->assertEquals('1.0.3.11', (string) $this->instance);
+    }
+
+    public function testVersionBitsArray()
+    {
+        $version_bits_array = $this->instance->getVersionBits();
+        $this->assertEquals(4, count($version_bits_array));
+        $this->assertEquals('1', $version_bits_array[0]);
+        $this->assertEquals('0', $version_bits_array[1]);
+        $this->assertEquals('3', $version_bits_array[2]);
+        $this->assertEquals('11', $version_bits_array[3]);
+    }
+
+    public function testVersionFromBits()
+    {
+        $version_bits_array = $this->instance->getVersionFromBits(3);
+        $this->assertEquals(1, count($version_bits_array));
+        $this->assertEquals('3', $version_bits_array[0]);
+    }
+
+    public function testCurrentDirectoryInstantiation()
+    {
+        $current_dir_instantiation = new Version();
+        $this->assertEquals(8, strlen($current_dir_instantiation->getVersionHash()));
     }
 }
