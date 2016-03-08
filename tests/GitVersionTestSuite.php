@@ -28,7 +28,7 @@ class GitVersionTestSuite extends PHPUnit_Framework_TestCase
      */
     public function tearDown()
     {
-        self::Recursive_Rmdir(self::STUB_DIR . DIRECTORY_SEPARATOR . 'collection');
+        //self::Recursive_Rmdir(self::STUB_DIR . DIRECTORY_SEPARATOR . 'collection');
         parent::tearDown();
     }
 
@@ -43,10 +43,11 @@ class GitVersionTestSuite extends PHPUnit_Framework_TestCase
             $objects = scandir($dir);
             foreach ($objects as $object) {
                 if ($object != "." && $object != "..") {
-                    if (is_dir($dir . "/" . $object))
+                    if (is_dir($dir . "/" . $object)) {
                         self::Recursive_Rmdir($dir . "/" . $object);
-                    else
+                    } else {
                         unlink($dir . "/" . $object);
+                    }
                 }
             }
             rmdir($dir);
