@@ -68,7 +68,7 @@ class Version
         if (is_null($bits)) {
             return (int) str_replace('.', '', $this->version);
         }
-        return $this->versionFromBits($bits)[1];
+        return implode('', $this->versionFromBits($bits));
     }
 
     /**
@@ -124,7 +124,6 @@ class Version
     private function versionBits()
     {
         $version_bits = explode('-', $this->version);
-        //var_dump($version_bits);
         if (strlen($version_bits[0])) {
             if (isset($version_bits[1])) {
                 $this->version = $version_bits[0] . '.' . $version_bits[1];
@@ -135,7 +134,7 @@ class Version
                 $this->hash = $version_bits[2];
             }
         }
-        return $version_bits;
+        return false;
     }
 
     /**

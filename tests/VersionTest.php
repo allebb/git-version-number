@@ -45,7 +45,7 @@ class VersionTest extends GitVersionTestSuite
 
     public function testVersionNumberAsIntegerWithSpecificNumberOfElements()
     {
-        $this->assertEquals(0, $this->instance->getVersionNumber(2));
+        $this->assertEquals(103, $this->instance->getVersionNumber(3));
     }
 
     public function testVersionAsIntegerWithMajorVersionElementOnly()
@@ -87,5 +87,6 @@ class VersionTest extends GitVersionTestSuite
     public function testCurrentDirectoryInstantiation()
     {
         $current_dir_instantiation = new Version(parent::STUB_DIR . DIRECTORY_SEPARATOR . 'hooker');
+        $this->assertEquals(false, $current_dir_instantiation->getVersionNumber());
     }
 }
