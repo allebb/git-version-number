@@ -67,9 +67,8 @@ class Version
     {
         if (is_null($bits)) {
             return (int) str_replace('.', '', $this->version);
-        } else {
-            return implode('.', $this->versionFromBits($bits));
         }
+        return $this->versionFromBits($bits)[1];
     }
 
     /**
@@ -114,29 +113,18 @@ class Version
      */
     private function extractVersion()
     {
-        $this->version = str_replace('v', '', exec($this->executionPath()));
+        $this->version = str_replace('v', '', exec(sprintf('git --git-dir=%s describe --tags', $this->git_path)));
         $this->versionBits();
     }
 
     /**
-     * Builds the Git execution path.
-     * @return string
-     */
-    private function executionPath()
-    {
-        if (is_null($this->git_path)) {
-            return 'git describe --tags';
-        }
-        return sprintf('git --git-dir=%s describe --tags', $this->git_path);
-    }
-
-    /**
-     * Computes and sets the version number and hash object properties.
-     * @return voids
+     * Computes and sets the version number and object hash properties.
+     * @return void
      */
     private function versionBits()
     {
         $version_bits = explode('-', $this->version);
+        //var_dump($version_bits);
         if (strlen($version_bits[0])) {
             if (isset($version_bits[1])) {
                 $this->version = $version_bits[0] . '.' . $version_bits[1];

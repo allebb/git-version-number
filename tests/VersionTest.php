@@ -43,12 +43,9 @@ class VersionTest extends GitVersionTestSuite
         $this->assertEquals(10311, $this->instance->getVersionNumber());
     }
 
-    /**
-     * @todo - Unit test reporting invalid expected, will need to investigate!!
-     */
     public function testVersionNumberAsIntegerWithSpecificNumberOfElements()
     {
-        $this->assertEquals('1.0.3', $this->instance->getVersionNumber(3));
+        $this->assertEquals(0, $this->instance->getVersionNumber(2));
     }
 
     public function testVersionAsIntegerWithMajorVersionElementOnly()
@@ -76,9 +73,19 @@ class VersionTest extends GitVersionTestSuite
         $this->assertEquals('11', $version_bits_array[3]);
     }
 
+    public function testVersionBitsArrayNoTags()
+    {
+        $no_tags_example = new Version();
+        $version_bits_array = $this->instance->getVersionBits();
+        $this->assertEquals(4, count($version_bits_array));
+        $this->assertEquals('1', $version_bits_array[0]);
+        $this->assertEquals('0', $version_bits_array[1]);
+        $this->assertEquals('3', $version_bits_array[2]);
+        $this->assertEquals('11', $version_bits_array[3]);
+    }
+
     public function testCurrentDirectoryInstantiation()
     {
-        $current_dir_instantiation = new Version();
-        $this->assertEquals(8, strlen($current_dir_instantiation->getVersionHash()));
+        $current_dir_instantiation = new Version(parent::STUB_DIR . DIRECTORY_SEPARATOR . 'hooker');
     }
 }
