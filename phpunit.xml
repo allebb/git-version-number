@@ -10,7 +10,7 @@
          stopOnError="false"
          stopOnFailure="false"
          syntaxCheck="true"
-         verbose="true"
+         verbose="false"
 >
     <testsuites>
         <testsuite name="Package Unit Tests">

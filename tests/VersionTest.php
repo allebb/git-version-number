@@ -87,6 +87,12 @@ class VersionTest extends GitVersionTestSuite
     public function testCurrentDirectoryInstantiation()
     {
         $current_dir_instantiation = new Version(parent::STUB_DIR . DIRECTORY_SEPARATOR . 'hooker');
-        $this->assertEquals(false, $current_dir_instantiation->getVersionNumber());
+        $this->assertEquals('c9a3d31', $current_dir_instantiation->getVersionHash());
+    }
+    
+    public function testFalseGitDirectoryInstantiation()
+    {
+        $current_dir_instantiation = new Version(parent::STUB_DIR . DIRECTORY_SEPARATOR . 'hooker', '/usr/local/testgit');
+        $this->assertEquals('0.0.0.0', $current_dir_instantiation->getVersionString());
     }
 }

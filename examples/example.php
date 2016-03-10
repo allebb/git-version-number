@@ -1,12 +1,12 @@
 <?php
-require_once '../src/Version.php';
-require_once '../src/VersionFactory.php';
+require_once '../vendor/autoload.php';
 use Ballen\GitVersionNumber\Version;
 use Ballen\GitVersionNumber\VersionFactory;
 
 // Replace with your project root directory (where the .git directory is located)
 $git_path = realpath('..');
 //$git_path = '/Users/ballen/Code/your-project-name';
+
 // Using the factory class you can easily return the standard version number string.
 echo VersionFactory::create($git_path)->getVersionString() . PHP_EOL;
 

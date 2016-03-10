@@ -2,6 +2,8 @@
 
 namespace Ballen\GitVersionNumber;
 
+use Ballen\Executioner\Executioner as Executable;
+
 /**
  * Git Version Number
  * 
@@ -17,16 +19,10 @@ class Version
 {
 
     /**
-     * The Git Tag version number.
-     * @var string
+     * The git binary path.
+     * @var string 
      */
-    private $version = null;
-
-    /**
-     * The Git commit hash.
-     * @var string
-     */
-    private $hash = null;
+    private $git_bin;
 
     /**
      * Optional path to the .git directory (root of the project if it is not the same as the PHP script)
@@ -35,11 +31,25 @@ class Version
     private $git_path;
 
     /**
-     * Class constructor
-     * @param string $git_path Optional Git Path to be set when the .git directory is not in the same directory as the PHP script.
+     * The Git Tag version number.
+     * @var string
      */
-    public function __construct($git_path = '.')
+    private $version = '0.0.0-0-0000000';
+
+    /**
+     * The Git commit hash.
+     * @var string
+     */
+    private $hash = null;
+
+    /**
+     * Class constructor
+     * @param type $git_path The root project path (if not the current directory)
+     * @param type $git_exec The path to the Git binary (by default will use the system PATH variable.)
+     */
+    public function __construct($git_path = '.', $git_bin = 'git')
     {
+        $this->git_bin = $git_bin;
         $this->setRepositoryPath($git_path);
         $this->extractVersion();
     }
@@ -113,7 +123,22 @@ class Version
      */
     private function extractVersion()
     {
-        $this->version = str_replace('v', '', exec(sprintf('git --git-dir=%s describe --tags', $this->git_path)));
+        $git = Executable::make($this->git_bin)
+            ->addArgument(sprintf('--git-dir=%s', $this->git_path))
+            ->addArgument('describe')
+            ->addArgument('--tags')
+            ->addArgument('--always');
+        try {
+            $git->execute();
+            $version = trim($git->resultAsText());
+            if (strlen($version) > 7) {
+                $this->version = str_replace('v', '', $version);
+            } else {
+                $this->version = '0.0.0-0-' . $version;
+            }
+        } catch (\Ballen\Executioner\Exceptions\ExecutionException $exception) {
+            
+        }
         $this->versionBits();
     }
 
@@ -134,7 +159,6 @@ class Version
                 $this->hash = $version_bits[2];
             }
         }
-        return false;
     }
 
     /**
