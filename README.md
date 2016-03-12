@@ -15,15 +15,57 @@ Requirements
 
 * PHP >= 5.4.0
 
+This library is unit tested against PHP 5.4, 5.5, 5.6, 7.0 and HHVM!
+
 License
 -------
 
 This library is released under the [MIT license](LICENSE).
 
+Installation
+------------
+
+The recommended way of installing this library is via. [Composer](http://getcomposer.org); To install using Composer type the following command at the console:
+
+```shell
+composer require ballen/git-version-number
+```
+
+Alternately you can add it to your ``composer.json`` file manually in the `require` section like so:
+
+```php
+"ballen/git-version-number": "^1.0"
+```
+Then install the package by running the ``composer update git-version-number`` command.
+
 Examples
 --------
 
 A set of working examples can be found in the ``/examples`` directory.
+
+Tests and coverage
+------------------
+
+This library is fully unit tested using [PHPUnit](https://phpunit.de/).
+
+I use [TravisCI](https://travis-ci.org/) for continuous integration, which triggers tests for PHP 5.4, 5.5, 5.6, 7.0 and HHVM every time a commit is pushed.
+
+If you wish to run the tests yourself you should run the following:
+
+```shell
+# Install the Library with the 'development' packages this then includes PHPUnit!
+composer install
+
+
+# Now we run the unit tests (from the root of the project) like so:
+./vendor/bin/phpunit
+```
+
+Code coverage can also be ran but requires XDebug installed...
+
+```shell
+./vendor/bin/phpunit --coverage-html ./report
+```
 
 Support
 -------
