@@ -1,8 +1,6 @@
 Git Version Number
 ==================
 
-[![Build Status](https://travis-ci.org/bobsta63/git-version-number.svg)](https://travis-ci.org/bobsta63/git-version-number)
-[![Code Coverage](https://scrutinizer-ci.com/g/bobsta63/git-version-number/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/bobsta63/git-version-number/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bobsta63/git-version-number/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bobsta63/git-version-number/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/ballen/git-version-number/v/stable)](https://packagist.org/packages/ballen/git-version-number)
 [![Latest Unstable Version](https://poser.pugx.org/ballen/git-version-number/v/unstable)](https://packagist.org/packages/ballen/git-version-number)
@@ -14,8 +12,6 @@ Requirements
 ------------
 
 * PHP >= 5.4.0
-
-This library is unit tested against PHP 5.4, 5.5, 5.6, 7.0 and HHVM!
 
 License
 -------
@@ -47,8 +43,6 @@ Tests and coverage
 ------------------
 
 This library is fully unit tested using [PHPUnit](https://phpunit.de/).
-
-I use [TravisCI](https://travis-ci.org/) for continuous integration, which triggers tests for PHP 5.4, 5.5, 5.6, 7.0 and HHVM every time a commit is pushed.
 
 If you wish to run the tests yourself you should run the following:
 
