@@ -2,6 +2,7 @@ Git Version Number
 ==================
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/allebb/git-version-number/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/allebb/git-version-number/?branch=master)
+[![Code Climate](https://codeclimate.com/github/allebb/git-version-number/badges/gpa.svg)](https://codeclimate.com/github/allebb/git-version-number)
 [![Latest Stable Version](https://poser.pugx.org/ballen/git-version-number/v/stable)](https://packagist.org/packages/ballen/git-version-number)
 [![Latest Unstable Version](https://poser.pugx.org/ballen/git-version-number/v/unstable)](https://packagist.org/packages/ballen/git-version-number)
 [![License](https://poser.pugx.org/ballen/git-version-number/license)](https://packagist.org/packages/ballen/git-version-number)
