@@ -1,5 +1,4 @@
 <?php
-
 namespace Ballen\GitVersionNumber;
 
 /**
@@ -8,9 +7,9 @@ namespace Ballen\GitVersionNumber;
  * A library for extracting and utilising your project's Git version information.
  *
  * @author Bobby Allen <ballen@bobbyallen.me>
- * @license https://raw.githubusercontent.com/bobsta63/git-version-number/master/LICENSE
- * @link https://github.com/bobsta63/git-version-number
- * @link http://www.bobbyallen.me
+ * @license https://raw.githubusercontent.com/allebb/git-version-number/master/LICENSE
+ * @link https://github.com/allebb/git-version-number
+ * @link http://bobbyallen.me
  *
  */
 class VersionFactory

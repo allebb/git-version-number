@@ -1,5 +1,4 @@
 <?php
-
 namespace Ballen\GitVersionNumber;
 
 use Ballen\Executioner\Executioner as Executable;
@@ -10,9 +9,9 @@ use Ballen\Executioner\Executioner as Executable;
  * A library for extracting and utilising your project's Git version information.
  *
  * @author Bobby Allen <ballen@bobbyallen.me>
- * @license https://raw.githubusercontent.com/bobsta63/git-version-number/master/LICENSE
- * @link https://github.com/bobsta63/git-version-number
- * @link http://www.bobbyallen.me
+ * @license https://raw.githubusercontent.com/allebb/git-version-number/master/LICENSE
+ * @link https://github.com/allebb/git-version-number
+ * @link http://bobbyallen.me
  *
  */
 class Version
@@ -22,13 +21,13 @@ class Version
      * The git binary path.
      * @var string 
      */
-    private $git_bin;
+    private $gitBin;
 
     /**
      * Optional path to the .git directory (root of the project if it is not the same as the PHP script)
      * @var string
      */
-    private $git_path;
+    private $gitPath;
 
     /**
      * The Git Tag version number.
@@ -44,13 +43,13 @@ class Version
 
     /**
      * Class constructor
-     * @param type $git_path The root project path (if not the current directory)
-     * @param type $git_bin The path to the Git binary (by default will use the system PATH variable.)
+     * @param type $gitPath The root project path (if not the current directory)
+     * @param type $gitBin The path to the Git binary (by default will use the system PATH variable.)
      */
-    public function __construct($git_path = '.', $git_bin = 'git')
+    public function __construct($gitPath = '.', $gitBin = 'git')
     {
-        $this->git_bin = $git_bin;
-        $this->setRepositoryPath($git_path);
+        $this->gitBin = $gitBin;
+        $this->setRepositoryPath($gitPath);
         $this->extractVersion();
     }
 
@@ -114,7 +113,7 @@ class Version
      */
     private function setRepositoryPath($path)
     {
-        $this->git_path = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . '.git';
+        $this->gitPath = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . '.git';
     }
 
     /**
@@ -123,8 +122,8 @@ class Version
      */
     private function extractVersion()
     {
-        $git = Executable::make($this->git_bin)
-            ->addArgument(sprintf('--git-dir=%s', $this->git_path))
+        $git = Executable::make($this->gitBin)
+            ->addArgument(sprintf('--git-dir=%s', $this->gitPath))
             ->addArgument('describe')
             ->addArgument('--tags')
             ->addArgument('--always');
