@@ -62,9 +62,8 @@ class Version
     {
         if (is_null($bits)) {
             return $this->version;
-        } else {
-            return implode('.', $this->versionFromBits($bits));
         }
+        return implode('.', $this->versionFromBits($bits));
     }
 
     /**
@@ -127,16 +126,18 @@ class Version
             ->addArgument('describe')
             ->addArgument('--tags')
             ->addArgument('--always');
+
         try {
             $git->execute();
-            $version = trim($git->resultAsText());
-            if (strlen($version) > 7) {
-                $this->version = str_replace('v', '', $version);
-            } else {
-                $this->version = '0.0.0-0-' . $version;
-            }
         } catch (\Ballen\Executioner\Exceptions\ExecutionException $exception) {
-            
+            // We could not obtain/execute the git command.
+        }
+
+        $version = trim($git->resultAsText());
+        $this->version = '0.0.0-0-' . $version;
+
+        if (strlen($version) > 7) {
+            $this->version = str_replace('v', '', $version);
         }
         $this->versionBits();
     }
@@ -147,15 +148,14 @@ class Version
      */
     private function versionBits()
     {
-        $version_bits = explode('-', $this->version);
-        if (strlen($version_bits[0])) {
-            if (isset($version_bits[1])) {
-                $this->version = $version_bits[0] . '.' . $version_bits[1];
-            } else {
-                $this->version = $version_bits[0];
+        $versionBits = explode('-', $this->version);
+        if (strlen($versionBits[0])) {
+            $this->version = $versionBits[0];
+            if (isset($versionBits[1])) {
+                $this->version = $versionBits[0] . '.' . $versionBits[1];
             }
-            if (isset($version_bits[2])) {
-                $this->hash = $version_bits[2];
+            if (isset($versionBits[2])) {
+                $this->hash = $versionBits[2];
             }
         }
     }
