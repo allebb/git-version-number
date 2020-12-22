@@ -1,26 +1,35 @@
 {
-    "name": "ballen/git-version-number",
-    "description": "A simple class for utilising your project's Git version information as your application version.",
-    "keywords": ["git version", "app version", "application", "version", "git", "ballen", "bobsta63"],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Bobby Allen",
-            "email": "ballen@bobbyallen.me",
-            "homepage": "http://bobbyallen.me",
-            "role": "Developer"
-        }
-    ],
-    "require": {
-        "php": ">=5.4.0",
-        "ballen/executioner": "^3.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Ballen\\GitVersionNumber\\": "src/"
-        }
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^4.8"
+  "name": "ballen/git-version-number",
+  "description": "A simple class for utilising your project's Git version information as your application version.",
+  "keywords": [
+    "git version",
+    "app version",
+    "application",
+    "version",
+    "git",
+    "ballen",
+    "bobsta63"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Bobby Allen",
+      "email": "ballen@bobbyallen.me",
+      "homepage": "http://bobbyallen.me",
+      "role": "Developer"
     }
+  ],
+  "require": {
+    "php": ">=5.5",
+    "ballen/executioner": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ballen\\GitVersionNumber\\": "src/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8",
+    "ext-zip": "*"
+  }
 }

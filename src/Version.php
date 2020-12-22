@@ -1,11 +1,12 @@
 <?php
+
 namespace Ballen\GitVersionNumber;
 
 use Ballen\Executioner\Executioner as Executable;
 
 /**
  * Git Version Number
- * 
+ *
  * A library for extracting and utilising your project's Git version information.
  *
  * @author Bobby Allen <ballen@bobbyallen.me>
@@ -19,7 +20,7 @@ class Version
 
     /**
      * The git binary path.
-     * @var string 
+     * @var string
      */
     private $gitBin;
 
@@ -74,7 +75,7 @@ class Version
     public function getVersionNumber($bits = null)
     {
         if (is_null($bits)) {
-            return (int) str_replace('.', '', $this->version);
+            return (int)str_replace('.', '', $this->version);
         }
         return implode('', $this->versionFromBits($bits));
     }
@@ -161,7 +162,7 @@ class Version
     }
 
     /**
-     * Returns an customised array of the total number of version bits. 
+     * Returns an customised array of the total number of version bits.
      * @param int $bits The total number of bits (segments) to return.
      * @return array
      */

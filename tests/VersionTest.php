@@ -19,7 +19,7 @@ class VersionTest extends GitVersionTestSuite
 
     public function __construct($name = null, array $data = array(), $dataName = '')
     {
-        $this->instance = new Version(parent::STUB_DIR . DIRECTORY_SEPARATOR . 'collection');
+        $this->instance = new Version(parent::$stubDirectory . DIRECTORY_SEPARATOR . 'collection');
         parent::__construct($name, $data, $dataName);
     }
 
@@ -86,13 +86,13 @@ class VersionTest extends GitVersionTestSuite
 
     public function testCurrentDirectoryInstantiation()
     {
-        $current_dir_instantiation = new Version(parent::STUB_DIR . DIRECTORY_SEPARATOR . 'hooker');
-        $this->assertEquals('c9a3d31', $current_dir_instantiation->getVersionHash());
+        $current_dir_instantiation = new Version(parent::$stubDirectory . DIRECTORY_SEPARATOR . 'hooker');
+        $this->assertEquals('45faef4', $current_dir_instantiation->getVersionHash());
     }
     
     public function testFalseGitDirectoryInstantiation()
     {
-        $current_dir_instantiation = new Version(parent::STUB_DIR . DIRECTORY_SEPARATOR . 'hooker', '/usr/local/testgit');
+        $current_dir_instantiation = new Version(parent::$stubDirectory . DIRECTORY_SEPARATOR . 'hooker', '/usr/bin/invalid-git-bin-path');
         $this->assertEquals('0.0.0.0', $current_dir_instantiation->getVersionString());
     }
 }

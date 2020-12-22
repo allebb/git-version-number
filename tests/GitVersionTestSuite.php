@@ -2,7 +2,7 @@
 
 /**
  * Git Version Number
- * 
+ *
  * A library for extracting and utilising your project's Git version information.
  *
  * @author Bobby Allen <ballen@bobbyallen.me>
@@ -14,7 +14,10 @@
 class GitVersionTestSuite extends PHPUnit_Framework_TestCase
 {
 
-    const STUB_DIR = __DIR__ . DIRECTORY_SEPARATOR . 'Stub';
+    /**
+     * @var string
+     */
+    public static $stubDirectory = __DIR__ . DIRECTORY_SEPARATOR . 'Stub';
 
     /**
      * Sets' up the test, we'll extract our stub Git project given that GitSCM is not capable of versioning a .git directory.
@@ -39,8 +42,8 @@ class GitVersionTestSuite extends PHPUnit_Framework_TestCase
     private static function extractStubProject($filename)
     {
         $stub_archive = new ZipArchive();
-        if ($stub_archive->open(self::STUB_DIR . DIRECTORY_SEPARATOR . $filename)) {
-            $stub_archive->extractTo(self::STUB_DIR);
+        if ($stub_archive->open(self::$stubDirectory . DIRECTORY_SEPARATOR . $filename)) {
+            $stub_archive->extractTo(self::$stubDirectory);
             $stub_archive->close();
         } else {
             throw new \RuntimeException("Unable to extract the stub project archive from {$filename}!");
