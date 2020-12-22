@@ -16,6 +16,12 @@ use Ballen\GitVersionNumber\VersionFactory;
 class VersionFactoryTest extends GitVersionTestSuite
 {
 
+    public function __construct($name = null, array $data = array(), $dataName = '')
+    {
+        parent::__construct($name, $data, $dataName);
+        parent::setUp();
+    }
+
     /**
      * Tests the factory instance creation.
      * @return void

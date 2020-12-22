@@ -41,6 +41,8 @@ class GitVersionTestSuite extends PHPUnit_Framework_TestCase
      */
     private static function extractStubProject($filename)
     {
+
+        //die(self::$stubDirectory . DIRECTORY_SEPARATOR . $filename);
         $stub_archive = new ZipArchive();
         if ($stub_archive->open(self::$stubDirectory . DIRECTORY_SEPARATOR . $filename)) {
             $stub_archive->extractTo(self::$stubDirectory);

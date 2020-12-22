@@ -21,6 +21,7 @@ class VersionTest extends GitVersionTestSuite
     {
         $this->instance = new Version(parent::$stubDirectory . DIRECTORY_SEPARATOR . 'collection');
         parent::__construct($name, $data, $dataName);
+        parent::setUp();
     }
 
     public function testVersionAsString()

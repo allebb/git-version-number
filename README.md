@@ -12,7 +12,7 @@ A simple library for utilising your project's Git version information as your ap
 Requirements
 ------------
 
-* PHP >= 7.1.0
+* PHP >= 7.2.0
 
 License
 -------
@@ -49,7 +49,7 @@ composer install
 ./vendor/bin/phpunit
 ```
 
-Code coverage can also be ran but requires XDebug installed...
+Code coverage can also be run but requires XDebug installed...
 
 ```shell
 ./vendor/bin/phpunit --coverage-html ./report
