@@ -1,6 +1,8 @@
 Git Version Number
 ==================
 
+[![Build](https://github.com/allebb/git-version-number/workflows/build/badge.svg)](https://github.com/allebb/git-version-number/actions)
+[![Code Coverage](https://codecov.io/gh/allebb/git-version-number/branch/master/graph/badge.svg)](https://codecov.io/gh/allebb/git-version-number)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/allebb/git-version-number/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/allebb/git-version-number/?branch=master)
 [![Code Climate](https://codeclimate.com/github/allebb/git-version-number/badges/gpa.svg)](https://codeclimate.com/github/allebb/git-version-number)
 [![Latest Stable Version](https://poser.pugx.org/ballen/git-version-number/v/stable)](https://packagist.org/packages/ballen/git-version-number)
