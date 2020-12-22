@@ -44,8 +44,8 @@ class Version
 
     /**
      * Class constructor
-     * @param type $gitPath The root project path (if not the current directory)
-     * @param type $gitBin The path to the Git binary (by default will use the system PATH variable.)
+     * @param string $gitPath The root project path (if not the current directory)
+     * @param string $gitBin The path to the Git binary (by default will use the system PATH variable.)
      */
     public function __construct($gitPath = '.', $gitBin = 'git')
     {

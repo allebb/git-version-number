@@ -12,7 +12,7 @@ A simple library for utilising your project's Git version information as your ap
 Requirements
 ------------
 
-* PHP >= 5.4.0
+* PHP >= 7.1.0
 
 License
 -------
@@ -27,13 +27,6 @@ The recommended way of installing this library is via. [Composer](http://getcomp
 ```shell
 composer require ballen/git-version-number
 ```
-
-Alternately you can add it to your ``composer.json`` file manually in the `require` section like so:
-
-```php
-"ballen/git-version-number": "^1.0"
-```
-Then install the package by running the ``composer update git-version-number`` command.
 
 Examples
 --------
