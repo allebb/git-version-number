@@ -1,5 +1,7 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Git Version Number
  *
@@ -11,7 +13,7 @@
  * @link http://bobbyallen.me
  *
  */
-class GitVersionTestSuite extends PHPUnit_Framework_TestCase
+class GitVersionTestSuite extends TestCase
 {
 
     /**
@@ -23,7 +25,7 @@ class GitVersionTestSuite extends PHPUnit_Framework_TestCase
      * Sets' up the test, we'll extract our stub Git project given that GitSCM is not capable of versioning a .git directory.
      * @return void
      */
-    public function setUp()
+    public function setUp(): void
     {
         try {
             self::extractStubProject('example_project.zip');
@@ -41,7 +43,6 @@ class GitVersionTestSuite extends PHPUnit_Framework_TestCase
      */
     private static function extractStubProject($filename)
     {
-
         //die(self::$stubDirectory . DIRECTORY_SEPARATOR . $filename);
         $stub_archive = new ZipArchive();
         if ($stub_archive->open(self::$stubDirectory . DIRECTORY_SEPARATOR . $filename)) {
