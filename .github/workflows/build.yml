@@ -69,4 +69,5 @@ jobs:
 
       # Uploading reports for analysis
       - name: Uploading code coverage to scrutinize
+        continue-on-error: true
         run: php ocular.phar code-coverage:upload --format=php-clover coverage.xml
